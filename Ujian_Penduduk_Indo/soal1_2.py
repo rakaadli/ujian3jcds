@@ -33,21 +33,23 @@ ybengkulu=df.loc[bengkulu,kolomy]
 
 from sklearn import linear_model
 model = linear_model.LinearRegression()
+
+#fit jawabarat
 model.fit(xr,yjawabarat)
 ypredictjb=model.predict(xr)
 
 print('Prediksi Jumlah Penduduk Jawa Barat di Tahun 2050:', int(round(model.predict([[2050]])[0])))
-
+#fit bengkulu
 model.fit(xr,ybengkulu)
 ypredictbengkulu=model.predict(xr)
 print('Prediksi jumlah Penduduk Bengkulu di Tahun 2050:', int(round(model.predict([[2050]])[0])))
 
+#fit indonesia
 model.fit(xr,yindonesia)
 ypredictid=model.predict(xr)
 print('Prediksi Jumlah Penduduk Indonesia di Tahun 2050:', int(round(model.predict([[2050]])[0])))
 
-#di plot
-
+#di plot aja dulu
 plt.figure(figsize=(9,6))
 plt.style.use('ggplot')
 plt.plot(x,yjawabarat,color='g',label=df1.Provinsi[Jawabarat],linestyle='-')
